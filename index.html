@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aaryan | Robotics</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: white;
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  position: fixed;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(10px);
+}
+
+nav h2 {
+  color: #00f7ff;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle, #001f3f, #000);
+}
+
+.hero h1 {
+  font-size: 60px;
+}
+
+.hero span {
+  color: #00f7ff;
+}
+
+.hero p {
+  margin: 20px 0;
+  color: #aaa;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  background: #00f7ff;
+  color: black;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* SECTION */
+section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+/* CARDS */
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111;
+  margin: 15px;
+  padding: 25px;
+  width: 260px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px #00f7ff;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h2>Aaryan</h2>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Projects</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <h1>Hi, I'm <span>Aaryan</span></h1>
+    <p>I build and teach robotics for beginners</p>
+    <button class="btn">Explore</button>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <h2>About Me</h2>
+  <p>I am passionate about robotics and helping students learn easily.</p>
+</section>
+
+<!-- SKILLS -->
+<section>
+  <h2>What I Teach</h2>
+  <div class="cards">
+    <div class="card">Arduino</div>
+    <div class="card">Sensors</div>
+    <div class="card">Robot Car</div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section>
+  <h2>Projects</h2>
+  <div class="cards">
+    <div class="card">Line Follower</div>
+    <div class="card">Rain Detector</div>
+    <div class="card">Smart Robot</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Aaryan | Robotics</p>
+</footer>
+
+</body>
+</html>
