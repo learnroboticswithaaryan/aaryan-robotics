@@ -125,6 +125,25 @@ footer {
     background: black;
 }
 
+/* WHATSAPP FLOAT */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    font-size: 22px;
+    padding: 14px;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 0 15px #25D366;
+    transition: 0.3s;
+}
+
+.whatsapp:hover {
+    transform: scale(1.2);
+}
+
 /* ANIMATION */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px);}
@@ -140,6 +159,7 @@ footer {
     <h2>Aaryan Robotics</h2>
     <div>
         <a href="#home">Home</a>
+        <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#learn">Learn</a>
         <a href="#contact">Contact</a>
@@ -154,6 +174,21 @@ footer {
         <a href="#projects"><button class="btn">Start Learning</button></a>
     </div>
 </div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>👨‍💻 About Me</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Aaryan Rayamajhi</h3>
+            <p>
+                I am a student passionate about robotics and technology. 
+                I build projects like Arduino cars, rain detectors, and electronic games. 
+                My goal is to help beginners learn robotics in a simple and practical way.
+            </p>
+        </div>
+    </div>
+</section>
 
 <!-- PROJECTS -->
 <section id="projects">
@@ -179,11 +214,20 @@ footer {
 <section id="contact">
     <h2>📩 Contact</h2>
     <p style="text-align:center;">Email: your@email.com</p>
+
+    <div style="text-align:center; margin-top:20px;">
+        <a href="https://wa.me/9779810487212" target="_blank">
+            <button class="btn">💬 Chat on WhatsApp</button>
+        </a>
+    </div>
 </section>
 
 <footer>
     <p>© 2026 Aaryan Robotics</p>
 </footer>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/9779810487212" target="_blank" class="whatsapp">💬</a>
 
 <!-- JAVASCRIPT ANIMATION -->
 <script>
