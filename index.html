@@ -21,18 +21,21 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 20px 60px;
+    padding: 20px 50px;
     position: sticky;
     top: 0;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(20px);
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(15px);
 }
+
+nav h2 { font-weight: 500; }
 
 nav a {
     color: #aaa;
     margin-left: 20px;
     text-decoration: none;
 }
+
 nav a:hover { color: white; }
 
 /* HERO */
@@ -44,51 +47,57 @@ nav a:hover { color: white; }
     text-align: center;
 }
 
-.hero h1 { font-size: 60px; }
+.hero h1 {
+    font-size: 60px;
+}
+
 .hero span { color: #0ea5e9; }
 
+.hero p {
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* BUTTON */
 .btn {
     margin-top: 20px;
     padding: 12px 25px;
     border-radius: 30px;
     border: none;
+    background: white;
+    color: black;
     cursor: pointer;
 }
 
-/* SECTION */
-section { padding: 80px 60px; }
+.btn:hover { transform: scale(1.05); }
 
-/* ABOUT */
-.about {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-.about img {
-    width: 200px;
-    border-radius: 20px;
+/* SECTION */
+section { padding: 80px 50px; }
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 /* CARDS */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 25px;
 }
 
 .card {
     background: rgba(255,255,255,0.05);
+    padding: 20px;
     border-radius: 15px;
-    overflow: hidden;
-    padding: 15px;
+    transition: 0.3s;
 }
 
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
+.card:hover {
+    transform: translateY(-10px);
 }
 
+/* CODE BLOCK */
 pre {
     background: #111;
     padding: 10px;
@@ -135,37 +144,38 @@ footer {
 
 <!-- ABOUT -->
 <section id="about">
-    <div class="about">
-        <img src="images/profile.jpg">
-        <div>
-            <h2>Aaryan Rayamajhi</h2>
-            <p>I am a robotics enthusiast building Arduino projects and helping beginners learn easily.</p>
+    <h2>👨‍💻 About Me</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Aaryan Rayamajhi</h3>
+            <p>
+                I am a student passionate about robotics and technology. 
+                I build projects like Arduino cars, rain detectors, and electronic games. 
+                My goal is to help beginners learn robotics easily.
+            </p>
         </div>
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>Projects</h2>
+    <h2>🚀 Projects</h2>
     <div class="cards">
 
         <div class="card">
-            <img src="images/car.jpg">
-            <h3>Obstacle Avoiding Car</h3>
-            <p>Smart robot that avoids obstacles.</p>
+            <h3>🚗 Obstacle Avoiding Car</h3>
+            <p>Smart robot that detects obstacles and avoids them automatically.</p>
             <a href="#car-details"><button class="btn">View Details</button></a>
         </div>
 
         <div class="card">
-            <img src="images/rain.jpg">
-            <h3>Rain Detector</h3>
-            <p>Automatic protection system.</p>
+            <h3>🌧️ Rain Detector</h3>
+            <p>Automatic system to protect clothes from rain.</p>
         </div>
 
         <div class="card">
-            <img src="images/buzz.jpg">
-            <h3>Buzz Wire</h3>
-            <p>Fun electronics project.</p>
+            <h3>🎯 Buzz Wire Game</h3>
+            <p>Fun electronics game using buzzer and wire.</p>
         </div>
 
     </div>
@@ -178,7 +188,7 @@ footer {
 <div class="cards">
 
 <div class="card">
-<h3>Components</h3>
+<h3>🔧 Components</h3>
 <ul>
 <li>Arduino Uno</li>
 <li>Ultrasonic Sensor</li>
@@ -189,17 +199,17 @@ footer {
 </div>
 
 <div class="card">
-<h3>Working</h3>
+<h3>⚡ Working</h3>
 <p>Sensor detects obstacle → car stops & turns → else moves forward.</p>
 </div>
 
 <div class="card">
-<h3>Wiring</h3>
+<h3>🔌 Wiring</h3>
 <p>TRIG→9 ECHO→10 IN1→2 IN2→3 IN3→4 IN4→5</p>
 </div>
 
 <div class="card">
-<h3>Code</h3>
+<h3>💻 Code</h3>
 <pre>
 #define trigPin 9
 #define echoPin 10
@@ -225,13 +235,13 @@ void loop(){
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-<h2>Contact</h2>
+<h2>📩 Contact</h2>
 
-<p>aaryanrayamazi@gmail.com</p>
+<p>📧 aaryanrayamazi@gmail.com</p>
 
-<a href="https://wa.me/9779810487212"><button class="btn">WhatsApp</button></a>
-<a href="mailto:aaryanrayamazi@gmail.com"><button class="btn">Email</button></a>
-<a href="https://www.instagram.com/_a_for_aaryan__" target="_blank"><button class="btn">Instagram</button></a>
+<a href="https://wa.me/9779810487212"><button class="btn">💬 WhatsApp</button></a>
+<a href="mailto:aaryanrayamazi@gmail.com"><button class="btn">📧 Email</button></a>
+<a href="https://www.instagram.com/_a_for_aaryan__" target="_blank"><button class="btn">📸 Instagram</button></a>
 
 </section>
 
