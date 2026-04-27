@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learn Robotics with Aaryan</title>
+<title>Aaryan Robotics</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
@@ -13,7 +13,7 @@ html { scroll-behavior: smooth; }
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #020617;
+    background: #000;
     color: white;
 }
 
@@ -21,23 +21,19 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    padding: 15px 40px;
+    padding: 20px 60px;
     position: sticky;
     top: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(20px);
 }
-
-nav h2 { color: #38bdf8; }
 
 nav a {
-    color: white;
+    color: #aaa;
     margin-left: 20px;
     text-decoration: none;
-    transition: 0.3s;
 }
-
-nav a:hover { color: #38bdf8; }
+nav a:hover { color: white; }
 
 /* HERO */
 .hero {
@@ -48,99 +44,68 @@ nav a:hover { color: #38bdf8; }
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 55px;
-    animation: fadeIn 2s ease-in-out;
-}
+.hero h1 { font-size: 60px; }
+.hero span { color: #0ea5e9; }
 
-.hero span { color: #38bdf8; }
-
-.hero p { animation: fadeIn 3s ease-in-out; }
-
-/* BUTTON */
 .btn {
+    margin-top: 20px;
     padding: 12px 25px;
+    border-radius: 30px;
     border: none;
-    background: linear-gradient(45deg, #38bdf8, #6366f1);
-    color: white;
-    border-radius: 5px;
     cursor: pointer;
-    margin: 10px;
-    transition: 0.3s;
 }
 
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #38bdf8;
+/* SECTION */
+section { padding: 80px 60px; }
+
+/* ABOUT */
+.about {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
 }
-
-/* SECTIONS */
-section { padding: 80px 40px; }
-
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
+.about img {
+    width: 200px;
+    border-radius: 20px;
 }
 
 /* CARDS */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
     gap: 25px;
 }
 
 .card {
-    background: #0f172a;
-    padding: 25px;
+    background: rgba(255,255,255,0.05);
     border-radius: 15px;
-    transition: 0.4s;
-    opacity: 0;
-    transform: translateY(50px);
+    overflow: hidden;
+    padding: 15px;
 }
 
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 0 25px #38bdf8;
+pre {
+    background: #111;
+    padding: 10px;
+    overflow: auto;
+    font-size: 12px;
 }
 
-/* SOCIAL BUTTONS */
-.socials {
+/* CONTACT */
+.contact {
     text-align: center;
-    margin-top: 20px;
 }
 
 /* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
-    background: black;
-}
-
-/* WHATSAPP FLOAT */
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #25D366;
-    color: white;
-    font-size: 22px;
-    padding: 14px;
-    border-radius: 50%;
-    text-decoration: none;
-    box-shadow: 0 0 15px #25D366;
-}
-
-.whatsapp:hover { transform: scale(1.2); }
-
-/* ANIMATION */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px);}
-    to { opacity: 1; transform: translateY(0);}
+    color: gray;
 }
 </style>
 </head>
@@ -154,99 +119,125 @@ footer {
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#learn">Learn</a>
+        <a href="#car-details">Tutorial</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
 
 <!-- HERO -->
-<div class="hero" id="home">
+<section class="hero" id="home">
     <div>
-        <h1>Learn <span>Robotics</span> with Aaryan</h1>
-        <p>Build, Code, Innovate 🚀</p>
-        <a href="#projects"><button class="btn">Start Learning</button></a>
+        <h1>Learn <span>Robotics</span></h1>
+        <p>Simple. Practical. Powerful.</p>
+        <a href="#projects"><button class="btn">Explore</button></a>
     </div>
-</div>
+</section>
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>👨‍💻 About Me</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Aaryan Rayamajhi</h3>
-            <p>
-                I am a student passionate about robotics and technology. 
-                I build projects like Arduino cars, rain detectors, and electronic games. 
-                My goal is to help beginners learn robotics easily.
-            </p>
+    <div class="about">
+        <img src="images/profile.jpg">
+        <div>
+            <h2>Aaryan Rayamajhi</h2>
+            <p>I am a robotics enthusiast building Arduino projects and helping beginners learn easily.</p>
         </div>
     </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>🚀 Projects</h2>
+    <h2>Projects</h2>
     <div class="cards">
-        <div class="card"><h3>Arduino Car</h3><p>Obstacle avoiding robot.</p></div>
-        <div class="card"><h3>Rain Detector</h3><p>Auto clothes protection system.</p></div>
-        <div class="card"><h3>Buzz Wire</h3><p>Fun electric game project.</p></div>
+
+        <div class="card">
+            <img src="images/car.jpg">
+            <h3>Obstacle Avoiding Car</h3>
+            <p>Smart robot that avoids obstacles.</p>
+            <a href="#car-details"><button class="btn">View Details</button></a>
+        </div>
+
+        <div class="card">
+            <img src="images/rain.jpg">
+            <h3>Rain Detector</h3>
+            <p>Automatic protection system.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/buzz.jpg">
+            <h3>Buzz Wire</h3>
+            <p>Fun electronics project.</p>
+        </div>
+
     </div>
 </section>
 
-<!-- LEARN -->
-<section id="learn">
-    <h2>📚 Learn</h2>
-    <div class="cards">
-        <div class="card"><h3>Sensors</h3><p>Ultrasonic & IR basics.</p></div>
-        <div class="card"><h3>Arduino</h3><p>Control electronics with code.</p></div>
-        <div class="card"><h3>Motors</h3><p>Build moving robots.</p></div>
-    </div>
+<!-- CAR DETAILS -->
+<section id="car-details">
+<h2>🚗 Obstacle Avoiding Car</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Components</h3>
+<ul>
+<li>Arduino Uno</li>
+<li>Ultrasonic Sensor</li>
+<li>Motor Driver</li>
+<li>Battery</li>
+<li>DC Motors</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Working</h3>
+<p>Sensor detects obstacle → car stops & turns → else moves forward.</p>
+</div>
+
+<div class="card">
+<h3>Wiring</h3>
+<p>TRIG→9 ECHO→10 IN1→2 IN2→3 IN3→4 IN4→5</p>
+</div>
+
+<div class="card">
+<h3>Code</h3>
+<pre>
+#define trigPin 9
+#define echoPin 10
+
+#define IN1 2
+#define IN2 3
+#define IN3 4
+#define IN4 5
+
+void setup(){
+pinMode(trigPin,OUTPUT);
+pinMode(echoPin,INPUT);
+}
+
+void loop(){
+// logic here
+}
+</pre>
+</div>
+
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <h2>📩 Contact</h2>
+<section id="contact" class="contact">
+<h2>Contact</h2>
 
-    <p style="text-align:center;">
-        📧 Email: aaryanrayamazi@gmail.com
-    </p>
+<p>aaryanrayamazi@gmail.com</p>
 
-    <div class="socials">
-        <a href="https://wa.me/9779810487212" target="_blank">
-            <button class="btn">💬 WhatsApp</button>
-        </a>
+<a href="https://wa.me/9779810487212"><button class="btn">WhatsApp</button></a>
+<a href="mailto:aaryanrayamazi@gmail.com"><button class="btn">Email</button></a>
+<a href="https://www.instagram.com/_a_for_aaryan__" target="_blank"><button class="btn">Instagram</button></a>
 
-        <a href="mailto:aaryanrayamazi@gmail.com">
-            <button class="btn">📧 Email</button>
-        </a>
-
-        <a href="https://www.instagram.com/_a_for_aaryan__?igsh=MXU5bmE2dGx4YnhzOQ==" target="_blank">
-            <button class="btn">📸 Instagram</button>
-        </a>
-    </div>
 </section>
 
 <footer>
-    <p>© 2026 Aaryan Robotics</p>
+© 2026 Aaryan Robotics
 </footer>
-
-<!-- FLOAT WHATSAPP -->
-<a href="https://wa.me/9779810487212" target="_blank" class="whatsapp">💬</a>
-
-<script>
-const cards = document.querySelectorAll('.card');
-
-window.addEventListener('scroll', () => {
-    cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
-        const screenHeight = window.innerHeight;
-
-        if (top < screenHeight - 50) {
-            card.classList.add('show');
-        }
-    });
-});
-</script>
 
 </body>
 </html>
