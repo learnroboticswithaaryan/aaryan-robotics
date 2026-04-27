@@ -28,9 +28,7 @@ nav {
     backdrop-filter: blur(10px);
 }
 
-nav h2 {
-    color: #38bdf8;
-}
+nav h2 { color: #38bdf8; }
 
 nav a {
     color: white;
@@ -39,9 +37,7 @@ nav a {
     transition: 0.3s;
 }
 
-nav a:hover {
-    color: #38bdf8;
-}
+nav a:hover { color: #38bdf8; }
 
 /* HERO */
 .hero {
@@ -57,13 +53,9 @@ nav a:hover {
     animation: fadeIn 2s ease-in-out;
 }
 
-.hero span {
-    color: #38bdf8;
-}
+.hero span { color: #38bdf8; }
 
-.hero p {
-    animation: fadeIn 3s ease-in-out;
-}
+.hero p { animation: fadeIn 3s ease-in-out; }
 
 /* BUTTON */
 .btn {
@@ -73,7 +65,7 @@ nav a:hover {
     color: white;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
+    margin: 10px;
     transition: 0.3s;
 }
 
@@ -83,9 +75,7 @@ nav a:hover {
 }
 
 /* SECTIONS */
-section {
-    padding: 80px 40px;
-}
+section { padding: 80px 40px; }
 
 h2 {
     text-align: center;
@@ -118,6 +108,12 @@ h2 {
     box-shadow: 0 0 25px #38bdf8;
 }
 
+/* SOCIAL BUTTONS */
+.socials {
+    text-align: center;
+    margin-top: 20px;
+}
+
 /* FOOTER */
 footer {
     text-align: center;
@@ -137,12 +133,9 @@ footer {
     border-radius: 50%;
     text-decoration: none;
     box-shadow: 0 0 15px #25D366;
-    transition: 0.3s;
 }
 
-.whatsapp:hover {
-    transform: scale(1.2);
-}
+.whatsapp:hover { transform: scale(1.2); }
 
 /* ANIMATION */
 @keyframes fadeIn {
@@ -184,7 +177,7 @@ footer {
             <p>
                 I am a student passionate about robotics and technology. 
                 I build projects like Arduino cars, rain detectors, and electronic games. 
-                My goal is to help beginners learn robotics in a simple and practical way.
+                My goal is to help beginners learn robotics easily.
             </p>
         </div>
     </div>
@@ -204,8 +197,8 @@ footer {
 <section id="learn">
     <h2>📚 Learn</h2>
     <div class="cards">
-        <div class="card"><h3>Sensors</h3><p>Understand ultrasonic & IR.</p></div>
-        <div class="card"><h3>Arduino</h3><p>Code and control hardware.</p></div>
+        <div class="card"><h3>Sensors</h3><p>Ultrasonic & IR basics.</p></div>
+        <div class="card"><h3>Arduino</h3><p>Control electronics with code.</p></div>
         <div class="card"><h3>Motors</h3><p>Build moving robots.</p></div>
     </div>
 </section>
@@ -213,11 +206,22 @@ footer {
 <!-- CONTACT -->
 <section id="contact">
     <h2>📩 Contact</h2>
-    <p style="text-align:center;">Email: your@email.com</p>
 
-    <div style="text-align:center; margin-top:20px;">
+    <p style="text-align:center;">
+        📧 Email: aaryanrayamazi@gmail.com
+    </p>
+
+    <div class="socials">
         <a href="https://wa.me/9779810487212" target="_blank">
-            <button class="btn">💬 Chat on WhatsApp</button>
+            <button class="btn">💬 WhatsApp</button>
+        </a>
+
+        <a href="mailto:aaryanrayamazi@gmail.com">
+            <button class="btn">📧 Email</button>
+        </a>
+
+        <a href="https://www.instagram.com/_a_for_aaryan__?igsh=MXU5bmE2dGx4YnhzOQ==" target="_blank">
+            <button class="btn">📸 Instagram</button>
         </a>
     </div>
 </section>
@@ -226,10 +230,9 @@ footer {
     <p>© 2026 Aaryan Robotics</p>
 </footer>
 
-<!-- WHATSAPP FLOAT BUTTON -->
+<!-- FLOAT WHATSAPP -->
 <a href="https://wa.me/9779810487212" target="_blank" class="whatsapp">💬</a>
 
-<!-- JAVASCRIPT ANIMATION -->
 <script>
 const cards = document.querySelectorAll('.card');
 
