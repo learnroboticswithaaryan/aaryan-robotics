@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzz Wire Game</title>
+
+<style>
+body{
+margin:0;
+font-family:Poppins, sans-serif;
+background:#020617;
+color:white;
+}
+
+/* NAV */
+nav{
+padding:20px;
+background:#000;
+}
+nav a{
+color:white;
+text-decoration:none;
+}
+
+/* CONTAINER */
+.container{
+padding:40px;
+max-width:900px;
+margin:auto;
+}
+
+/* CARD */
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+/* IMAGE */
+img{
+width:100%;
+border-radius:10px;
+margin-top:10px;
+}
+
+/* CODE */
+pre{
+background:#000;
+padding:10px;
+overflow:auto;
+font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">⬅ Back to Home</a>
+</nav>
+
+<div class="container">
+
+<h1>🎯 Buzz Wire Game</h1>
+
+<div class="card">
+<h2>🔧 Components</h2>
+<ul>
+<li>Battery (9V)</li>
+<li>Buzzer</li>
+<li>Metal Wire (maze)</li>
+<li>Handle Loop Wire</li>
+<li>Lamp / LED</li>
+<li>Wooden Frame</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>🖼️ Circuit Diagram</h2>
+
+<!-- ADD YOUR IMAGE HERE -->
+<img src="buzz.jpg" alt="Buzz Wire Game Connection">
+
+<p style="color:#aaa;">
+Tip: Upload your image in the same repo and name it <b>buzz.jpg</b>
+</p>
+</div>
+
+<div class="card">
+<h2>⚡ Working</h2>
+<p>
+The player moves a loop along the wire maze.  
+If the loop touches the wire → circuit completes → buzzer sounds and light glows.  
+If no touch → no sound.
+</p>
+</div>
+
+<div class="card">
+<h2>🔌 Connection</h2>
+<p>
+Battery (+) → Wire Maze  
+Wire Maze → Loop  
+Loop → Buzzer → Battery (-)  
+Lamp connected in parallel with buzzer
+</p>
+</div>
+
+<div class="card">
+<h2>💡 Note</h2>
+<p>
+No Arduino needed — this is a simple electric circuit project.
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
