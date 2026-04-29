@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obstacle Avoiding Car</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0f172a;
+    color:white;
+}
+
+/* NAV */
+nav {
+    padding:20px;
+    background:#020617;
+}
+nav a {
+    color:white;
+    text-decoration:none;
+}
+
+/* SECTION */
+.container {
+    padding:40px;
+}
+
+.card {
+    background:#1e293b;
+    padding:20px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+pre {
+    background:#020617;
+    padding:10px;
+    overflow:auto;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">⬅ Back to Home</a>
+</nav>
+
+<div class="container">
+
+<h1>🚗 Obstacle Avoiding Car</h1>
+
+<div class="card">
+<h2>🔧 Components</h2>
+<ul>
+<li>Arduino Uno</li>
+<li>Ultrasonic Sensor (HC-SR04)</li>
+<li>L298N Motor Driver</li>
+<li>DC Motors</li>
+<li>Battery</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⚡ Working</h2>
+<p>
+The ultrasonic sensor detects obstacles.  
+If distance is small → car stops & turns.  
+Else → moves forward.
+</p>
+</div>
+
+<div class="card">
+<h2>🔌 Wiring</h2>
+<p>TRIG → 9 | ECHO → 10 | IN1 → 2 | IN2 → 3 | IN3 → 4 | IN4 → 5</p>
+</div>
+
+<div class="card">
+<h2>💻 Full Code</h2>
+
+<pre>
+#define trigPin 9
+#define echoPin 10
+
+#define IN1 2
+#define IN2 3
+#define IN3 4
+#define IN4 5
+
+long duration;
+int distance;
+
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(IN3, OUTPUT);
+  pinMode(IN4, OUTPUT);
+}
+
+void loop() {
+
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2;
+
+  if(distance < 20){
+    // STOP
+    digitalWrite(IN1, LOW);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, LOW);
+    delay(500);
+
+    // TURN
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+    delay(600);
+  }
+  else{
+    // FORWARD
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
+  }
+}
+</pre>
+
+</div>
+
+</div>
+
+</body>
+</html>
