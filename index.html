@@ -3,231 +3,195 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Aaryan Robotics</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-html { scroll-behavior: smooth; }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #000;
-    color: white;
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#020617,#0f172a);
+color:white;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-    position: sticky;
-    top: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(15px);
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(12px);
+z-index:1000;
 }
 
-nav h2 { font-weight: 500; }
+nav h2{font-weight:500;}
 
-nav a {
-    color: #aaa;
-    margin-left: 20px;
-    text-decoration: none;
+nav a{
+color:#aaa;
+text-decoration:none;
+margin-left:20px;
+transition:0.3s;
 }
 
-nav a:hover { color: white; }
+nav a:hover{color:white;}
 
 /* HERO */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-.hero h1 {
-    font-size: 60px;
+.hero h1{
+font-size:60px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.hero span { color: #0ea5e9; }
-
-.hero p {
-    color: #aaa;
-    margin-top: 10px;
+.hero p{
+color:#aaa;
+margin-top:10px;
 }
 
-/* BUTTON */
-.btn {
-    margin-top: 20px;
-    padding: 12px 25px;
-    border-radius: 30px;
-    border: none;
-    background: white;
-    color: black;
-    cursor: pointer;
+.btn{
+margin-top:20px;
+padding:12px 28px;
+border:none;
+border-radius:30px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+color:white;
+cursor:pointer;
+transition:0.3s;
 }
 
-.btn:hover { transform: scale(1.05); }
+.btn:hover{
+transform:scale(1.1);
+}
 
 /* SECTION */
-section { padding: 80px 50px; }
-
-h2 {
-    text-align: center;
-    margin-bottom: 30px;
+section{
+padding:100px 60px;
 }
 
 /* CARDS */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 25px;
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.card {
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.3s;
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+transition:0.4s;
+opacity:0;
+transform:translateY(40px);
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
 
-/* CODE BLOCK */
-pre {
-    background: #111;
-    padding: 10px;
-    overflow: auto;
-    font-size: 12px;
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+}
+
+/* ABOUT */
+.about{
+text-align:center;
+max-width:700px;
+margin:auto;
+color:#bbb;
 }
 
 /* CONTACT */
-.contact {
-    text-align: center;
+.contact{
+text-align:center;
 }
 
 /* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    color: gray;
+footer{
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:35px;}
+nav{padding:20px;}
+section{padding:80px 20px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
-    <h2>Aaryan Robotics</h2>
-    <div>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#car-details">Tutorial</a>
-        <a href="#contact">Contact</a>
-    </div>
+<h2>Aaryan Robotics</h2>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-    <div>
-        <h1>Learn <span>Robotics</span></h1>
-        <p>Simple. Practical. Powerful.</p>
-        <a href="#projects"><button class="btn">Explore</button></a>
-    </div>
+<div>
+<h1>Build the Future with Robotics</h1>
+<p>Arduino • Innovation • Smart Projects</p>
+<a href="#projects"><button class="btn">Explore Projects</button></a>
+</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-    <h2>👨‍💻 About Me</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>Aaryan Rayamajhi</h3>
-            <p>
-                I am a student passionate about robotics and technology. 
-                I build projects like Arduino cars, rain detectors, and electronic games. 
-                My goal is to help beginners learn robotics easily.
-            </p>
-        </div>
-    </div>
+<h2 style="text-align:center;margin-bottom:20px;">👨‍💻 About Me</h2>
+
+<div class="about">
+<p>
+Hi, I’m <b>Aaryan Rayamajhi</b>, a student passionate about robotics and technology.  
+I build Arduino projects like smart cars, rain detectors, and electronic games.  
+My goal is to help beginners learn robotics in a simple and practical way.
+</p>
+</div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2>🚀 Projects</h2>
-    <div class="cards">
-
-        <div class="card">
-            <h3>🚗 Obstacle Avoiding Car</h3>
-            <p>Smart robot that detects obstacles and avoids them automatically.</p>
-            <a href="#car-details"><button class="btn">View Details</button></a>
-        </div>
-
-        <div class="card">
-            <h3>🌧️ Rain Detector</h3>
-            <p>Automatic system to protect clothes from rain.</p>
-        </div>
-
-        <div class="card">
-            <h3>🎯 Buzz Wire Game</h3>
-            <p>Fun electronics game using buzzer and wire.</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- CAR DETAILS -->
-<section id="car-details">
-<h2>🚗 Obstacle Avoiding Car</h2>
+<h2 style="text-align:center;margin-bottom:40px;">🚀 Projects</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>🔧 Components</h3>
-<ul>
-<li>Arduino Uno</li>
-<li>Ultrasonic Sensor</li>
-<li>Motor Driver</li>
-<li>Battery</li>
-<li>DC Motors</li>
-</ul>
+<h3>🚗 Obstacle Avoiding Car</h3>
+<p>Smart robot that detects and avoids obstacles automatically.</p>
+<a href="car.html"><button class="btn">View Project</button></a>
 </div>
 
 <div class="card">
-<h3>⚡ Working</h3>
-<p>Sensor detects obstacle → car stops & turns → else moves forward.</p>
+<h3>🌧 Rain Detector</h3>
+<p>Automatic system to protect clothes from rain.</p>
 </div>
 
 <div class="card">
-<h3>🔌 Wiring</h3>
-<p>TRIG→9 ECHO→10 IN1→2 IN2→3 IN3→4 IN4→5</p>
-</div>
-
-<div class="card">
-<h3>💻 Code</h3>
-<pre>
-#define trigPin 9
-#define echoPin 10
-
-#define IN1 2
-#define IN2 3
-#define IN3 4
-#define IN4 5
-
-void setup(){
-pinMode(trigPin,OUTPUT);
-pinMode(echoPin,INPUT);
-}
-
-void loop(){
-// logic here
-}
-</pre>
+<h3>🎯 Buzz Wire Game</h3>
+<p>Fun electronics game with buzzer feedback.</p>
 </div>
 
 </div>
@@ -235,19 +199,42 @@ void loop(){
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-<h2>📩 Contact</h2>
+<h2 style="margin-bottom:20px;">📩 Contact</h2>
 
-<p>📧 aaryanrayamazi@gmail.com</p>
+<p>Email: aaryanrayamazi@gmail.com</p>
 
-<a href="https://wa.me/9779810487212"><button class="btn">💬 WhatsApp</button></a>
-<a href="mailto:aaryanrayamazi@gmail.com"><button class="btn">📧 Email</button></a>
-<a href="https://www.instagram.com/_a_for_aaryan__" target="_blank"><button class="btn">📸 Instagram</button></a>
+<a href="https://wa.me/9779810487212">
+<button class="btn">WhatsApp</button>
+</a>
+
+<a href="mailto:aaryanrayamazi@gmail.com">
+<button class="btn">Email</button>
+</a>
+
+<a href="https://www.instagram.com/_a_for_aaryan__" target="_blank">
+<button class="btn">Instagram</button>
+</a>
 
 </section>
 
 <footer>
 © 2026 Aaryan Robotics
 </footer>
+
+<!-- ANIMATION SCRIPT -->
+<script>
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+cards.forEach(card => {
+const top = card.getBoundingClientRect().top;
+
+if(top < window.innerHeight - 50){
+card.classList.add('show');
+}
+});
+});
+</script>
 
 </body>
 </html>
