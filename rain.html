@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rain Detector</title>
+
+<style>
+body{
+margin:0;
+font-family:Poppins, sans-serif;
+background:#020617;
+color:white;
+}
+
+/* NAV */
+nav{
+padding:20px;
+background:#000;
+}
+nav a{
+color:white;
+text-decoration:none;
+}
+
+/* CONTAINER */
+.container{
+padding:40px;
+max-width:900px;
+margin:auto;
+}
+
+/* CARD */
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+/* CODE */
+pre{
+background:#000;
+padding:10px;
+overflow:auto;
+font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a href="index.html">⬅ Back to Home</a>
+</nav>
+
+<div class="container">
+
+<h1>🌧️ Rain Detector System</h1>
+
+<div class="card">
+<h2>🔧 Components</h2>
+<ul>
+<li>Arduino Uno</li>
+<li>Rain Sensor Module</li>
+<li>Servo Motor / DC Motor</li>
+<li>Motor Driver (optional)</li>
+<li>Battery</li>
+<li>Connecting Wires</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⚡ Working</h2>
+<p>
+The rain sensor detects water drops.  
+If rain is detected → motor rotates to pull clothes inside.  
+If no rain → system stays idle.
+</p>
+</div>
+
+<div class="card">
+<h2>🔌 Wiring</h2>
+<p>
+Rain Sensor → A0  
+Servo Signal → Pin 9  
+VCC → 5V  
+GND → GND  
+</p>
+</div>
+
+<div class="card">
+<h2>💻 Full Code</h2>
+
+<pre>
+#include <Servo.h>
+
+Servo myServo;
+int rainSensor = A0;
+
+void setup(){
+  myServo.attach(9);
+  pinMode(rainSensor, INPUT);
+}
+
+void loop(){
+
+  int value = analogRead(rainSensor);
+
+  if(value < 500){
+    // Rain detected
+    myServo.write(90);
+  }
+  else{
+    // No rain
+    myServo.write(0);
+  }
+
+  delay(500);
+}
+</pre>
+
+</div>
+
+</div>
+
+</body>
+</html>
