@@ -8,12 +8,18 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- LOTTIE -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Poppins',sans-serif;
-background:linear-gradient(135deg,#020617,#0f172a);
+background:#020617;
 color:white;
 overflow-x:hidden;
 }
@@ -25,36 +31,38 @@ justify-content:space-between;
 padding:20px 60px;
 position:fixed;
 width:100%;
-background:rgba(0,0,0,0.4);
-backdrop-filter:blur(12px);
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(15px);
 z-index:1000;
 }
-
-nav h2{font-weight:500;}
 
 nav a{
 color:#aaa;
 text-decoration:none;
 margin-left:20px;
-transition:0.3s;
 }
-
-nav a:hover{color:white;}
+nav a:hover{color:white}
 
 /* HERO */
 .hero{
 height:100vh;
 display:flex;
-justify-content:center;
+justify-content:space-between;
 align-items:center;
-text-align:center;
+padding:0 60px;
+}
+
+.hero-text{
+max-width:500px;
 }
 
 .hero h1{
-font-size:60px;
-background:linear-gradient(90deg,#38bdf8,#6366f1);
--webkit-background-clip:text;
-color:transparent;
+font-size:55px;
+line-height:1.2;
+}
+
+.hero span{
+color:#38bdf8;
 }
 
 .hero p{
@@ -62,11 +70,12 @@ color:#aaa;
 margin-top:10px;
 }
 
+/* BUTTON */
 .btn{
 margin-top:20px;
 padding:12px 28px;
-border:none;
 border-radius:30px;
+border:none;
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 color:white;
 cursor:pointer;
@@ -75,6 +84,7 @@ transition:0.3s;
 
 .btn:hover{
 transform:scale(1.1);
+box-shadow:0 0 20px #38bdf8;
 }
 
 /* SECTION */
@@ -95,44 +105,24 @@ backdrop-filter:blur(10px);
 padding:20px;
 border-radius:20px;
 transition:0.4s;
+transform:translateY(50px);
 opacity:0;
-transform:translateY(40px);
-}
-
-.card.show{
-opacity:1;
-transform:translateY(0);
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.03);
-}
-
-/* ABOUT */
-.about{
-text-align:center;
-max-width:700px;
-margin:auto;
-color:#bbb;
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px rgba(56,189,248,0.3);
 }
 
 /* CONTACT */
-.contact{
-text-align:center;
-}
+.contact{text-align:center;}
 
-/* FOOTER */
-footer{
-text-align:center;
-padding:20px;
-color:#777;
-}
+footer{text-align:center;padding:20px;color:#777}
 
 /* MOBILE */
 @media(max-width:768px){
+.hero{flex-direction:column;text-align:center}
 .hero h1{font-size:35px;}
-nav{padding:20px;}
-section{padding:80px 20px;}
 }
 </style>
 </head>
@@ -144,7 +134,6 @@ section{padding:80px 20px;}
 <h2>Aaryan Robotics</h2>
 <div>
 <a href="#home">Home</a>
-<a href="#about">About</a>
 <a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 </div>
@@ -152,24 +141,22 @@ section{padding:80px 20px;}
 
 <!-- HERO -->
 <section class="hero" id="home">
-<div>
-<h1>Build the Future with Robotics</h1>
-<p>Arduino • Innovation • Smart Projects</p>
-<a href="#projects"><button class="btn">Explore Projects</button></a>
-</div>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-<h2 style="text-align:center;margin-bottom:20px;">👨‍💻 About Me</h2>
-
-<div class="about">
-<p>
-Hi, I’m <b>Aaryan Rayamajhi</b>, a student passionate about robotics and technology.  
-I build Arduino projects like smart cars, rain detectors, and electronic games.  
-My goal is to help beginners learn robotics in a simple and practical way.
-</p>
+<div class="hero-text">
+<h1>Build <span>Robotics</span> Projects</h1>
+<p>Modern • Smart • Innovative</p>
+<a href="#projects"><button class="btn">Explore</button></a>
 </div>
+
+<!-- LOTTIE ANIMATION -->
+<lottie-player 
+src="https://assets10.lottiefiles.com/packages/lf20_touohxv0.json"
+background="transparent"
+speed="1"
+style="width: 350px; height: 350px;"
+loop autoplay>
+</lottie-player>
+
 </section>
 
 <!-- PROJECTS -->
@@ -180,7 +167,7 @@ My goal is to help beginners learn robotics in a simple and practical way.
 
 <div class="card">
 <h3>🚗 Obstacle Avoiding Car</h3>
-<p>Smart robot that detects and avoids obstacles automatically.</p>
+<p>Smart robot that avoids obstacles automatically.</p>
 <a href="car.html"><button class="btn">View Project</button></a>
 </div>
 
@@ -192,7 +179,7 @@ My goal is to help beginners learn robotics in a simple and practical way.
 
 <div class="card">
 <h3>🎯 Buzz Wire Game</h3>
-<p>Fun electronics game with buzzer feedback.</p>
+<p>Fun electronics game using buzzer.</p>
 <a href="buzz.html"><button class="btn">View Project</button></a>
 </div>
 
@@ -201,42 +188,53 @@ My goal is to help beginners learn robotics in a simple and practical way.
 
 <!-- CONTACT -->
 <section id="contact" class="contact">
-<h2 style="margin-bottom:20px;">📩 Contact</h2>
+<h2>📩 Contact</h2>
 
 <p>Email: aaryanrayamazi@gmail.com</p>
 
 <a href="https://wa.me/9779810487212">
 <button class="btn">WhatsApp</button>
 </a>
-
-<a href="mailto:aaryanrayamazi@gmail.com">
-<button class="btn">Email</button>
-</a>
-
-<a href="https://www.instagram.com/_a_for_aaryan__" target="_blank">
-<button class="btn">Instagram</button>
-</a>
-
 </section>
 
 <footer>
 © 2026 Aaryan Robotics
 </footer>
 
-<!-- ANIMATION SCRIPT -->
+<!-- GSAP ANIMATION -->
 <script>
-const cards = document.querySelectorAll('.card');
 
-window.addEventListener('scroll', () => {
-cards.forEach(card => {
-const top = card.getBoundingClientRect().top;
+// Hero animation
+gsap.from(".hero h1", {
+y: 50,
+opacity: 0,
+duration: 1
+});
 
-if(top < window.innerHeight - 50){
-card.classList.add('show');
-}
+gsap.from(".hero p", {
+y: 30,
+opacity: 0,
+delay:0.3
+});
+
+// Cards animation
+gsap.utils.toArray(".card").forEach((card,i)=>{
+gsap.to(card,{
+scrollTrigger:{
+trigger:card,
+start:"top 85%",
+},
+y:0,
+opacity:1,
+duration:0.8,
+delay:i*0.1
 });
 });
+
 </script>
+
+<!-- SCROLLTRIGGER -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 </body>
 </html>
