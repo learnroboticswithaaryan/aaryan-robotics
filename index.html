@@ -10,6 +10,7 @@
 
 <style>
 
+/* ===== RESET ===== */
 *{
 margin:0;
 padding:0;
@@ -25,7 +26,6 @@ overflow-x:hidden;
 }
 
 /* BACKGROUND */
-
 body::before{
 content:'';
 position:fixed;
@@ -38,19 +38,7 @@ linear-gradient(135deg,#020617,#0f172a,#020617);
 z-index:-1;
 }
 
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-thumb{
-background:linear-gradient(#38bdf8,#6366f1);
-border-radius:20px;
-}
-
 /* NAVBAR */
-
 nav{
 position:fixed;
 top:0;
@@ -91,7 +79,6 @@ color:#38bdf8;
 }
 
 /* HERO */
-
 .hero{
 min-height:100vh;
 display:flex;
@@ -102,7 +89,6 @@ padding:120px 7%;
 
 .hero-content{
 max-width:850px;
-animation:fadeUp 1.2s ease;
 }
 
 .hero h1{
@@ -143,49 +129,24 @@ border-radius:40px;
 font-size:15px;
 font-weight:600;
 cursor:pointer;
-transition:0.4s;
 }
 
 .btn-primary{
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 color:white;
-box-shadow:0 0 20px rgba(56,189,248,0.4);
 }
 
-.btn-primary:hover{
-transform:translateY(-5px);
-box-shadow:0 0 35px rgba(56,189,248,0.7);
-}
-
-.btn-outline{
-background:transparent;
-border:1px solid #38bdf8;
-color:#38bdf8;
-}
-
-.btn-outline:hover{
-background:#38bdf8;
-color:white;
-}
-
-/* BANNER */
-
+/* ===== BANNER ===== */
 .banner-section{
-padding:0 7% 80px;
+padding:40px 7% 80px;
 }
 
 .banner-container{
 width:100%;
-overflow:hidden;
 border-radius:30px;
+overflow:hidden;
 border:1px solid rgba(255,255,255,0.08);
 box-shadow:0 0 40px rgba(56,189,248,0.15);
-transition:0.4s;
-}
-
-.banner-container:hover{
-transform:scale(1.01);
-box-shadow:0 0 60px rgba(56,189,248,0.25);
 }
 
 .banner-container img{
@@ -193,8 +154,7 @@ width:100%;
 display:block;
 }
 
-/* SECTION */
-
+/* SECTIONS */
 section{
 padding:100px 7%;
 }
@@ -212,7 +172,6 @@ margin-bottom:60px;
 }
 
 /* ABOUT */
-
 .about-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -223,22 +182,9 @@ gap:30px;
 background:rgba(255,255,255,0.04);
 padding:35px;
 border-radius:24px;
-border:1px solid rgba(255,255,255,0.08);
-transition:0.4s;
-}
-
-.about-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(56,189,248,0.15);
-}
-
-.about-card h3{
-font-size:24px;
-margin-bottom:15px;
 }
 
 /* PROJECTS */
-
 .projects-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -249,29 +195,9 @@ gap:30px;
 background:rgba(255,255,255,0.04);
 padding:30px;
 border-radius:24px;
-border:1px solid rgba(255,255,255,0.08);
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.project-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 40px rgba(99,102,241,0.25);
-}
-
-.project-card h3{
-font-size:24px;
-margin-bottom:12px;
-}
-
-.project-card p{
-color:#94a3b8;
-margin-bottom:20px;
 }
 
 /* STATS */
-
 .stats{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -283,34 +209,15 @@ background:rgba(255,255,255,0.04);
 padding:40px 20px;
 border-radius:20px;
 text-align:center;
-border:1px solid rgba(255,255,255,0.08);
-transition:0.4s;
-}
-
-.stat-box:hover{
-transform:scale(1.05);
-}
-
-.stat-box h2{
-font-size:50px;
-background:linear-gradient(90deg,#38bdf8,#818cf8);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.stat-box p{
-color:#94a3b8;
 }
 
 /* CONTACT */
-
 .contact-box{
 max-width:700px;
 margin:auto;
 background:rgba(255,255,255,0.04);
 padding:40px;
 border-radius:24px;
-border:1px solid rgba(255,255,255,0.08);
 }
 
 .contact-box input,
@@ -322,71 +229,24 @@ background:#0f172a;
 border:none;
 border-radius:12px;
 color:white;
-font-family:'Poppins',sans-serif;
-}
-
-.contact-box textarea{
-height:140px;
-resize:none;
 }
 
 /* FOOTER */
-
 footer{
 padding:30px;
 text-align:center;
 color:#94a3b8;
-border-top:1px solid rgba(255,255,255,0.08);
 }
 
 /* ANIMATION */
-
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
 @keyframes blink{
-50%{
-border-color:transparent;
-}
+50%{border-color:transparent;}
 }
 
 /* MOBILE */
-
 @media(max-width:768px){
-
-.hero{
-padding:120px 20px;
-}
-
-.hero h1{
-font-size:45px;
-}
-
-section{
-padding:80px 20px;
-}
-
-.banner-section{
-padding:0 20px 60px;
-}
-
-nav{
-padding:18px 20px;
-}
-
-nav ul{
-gap:18px;
-font-size:14px;
-}
-
+.hero h1{font-size:45px;}
+nav ul{gap:15px;}
 }
 
 </style>
@@ -395,26 +255,18 @@ font-size:14px;
 <body>
 
 <!-- NAVBAR -->
-
 <nav>
-
-<div class="logo">
-Learn Robotics With Aaryan
-</div>
-
+<div class="logo">Learn Robotics With Aaryan</div>
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#stats">Stats</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-
 </nav>
 
 <!-- HERO -->
-
 <section class="hero">
-
 <div class="hero-content">
 
 <h1>
@@ -423,27 +275,15 @@ Build The Future With <span>Robotics</span><br>
 </h1>
 
 <p>
-Welcome to Learn Robotics With Aaryan — a modern robotics and technology platform focused on Arduino projects, automation systems, smart electronics, and future innovation.
+Welcome to Learn Robotics With Aaryan — Arduino, robotics, automation and future tech learning platform.
 </p>
 
-<div class="hero-buttons">
-
-<button class="btn btn-primary">
-Explore Projects
-</button>
-
-<button class="btn btn-outline">
-Contact Me
-</button>
+<button class="btn btn-primary">Explore Projects</button>
 
 </div>
-
-</div>
-
 </section>
 
-<!-- BANNER -->
-
+<!-- BANNER (FIXED) -->
 <section class="banner-section">
 
 <div class="banner-container">
@@ -456,213 +296,54 @@ alt="Learn Robotics With Aaryan Banner">
 </section>
 
 <!-- ABOUT -->
-
 <section id="about">
-
-<h2 class="section-title">
-About Me
-</h2>
-
-<p class="section-sub">
-Young robotics innovator passionate about technology and future systems.
-</p>
+<h2 class="section-title">About Me</h2>
+<p class="section-sub">Young robotics innovator passionate about technology.</p>
 
 <div class="about-grid">
-
 <div class="about-card">
 <h3>🤖 Robotics</h3>
-<p>
-Building smart robotics systems and Arduino-powered automation projects.
-</p>
+<p>Arduino and automation projects.</p>
 </div>
 
 <div class="about-card">
 <h3>⚡ Electronics</h3>
-<p>
-Creating practical electronic systems and beginner-friendly innovations.
-</p>
+<p>Smart circuits and devices.</p>
 </div>
 
 <div class="about-card">
-<h3>💻 Tech Learning</h3>
-<p>
-Learning coding, AI, electronics, and modern web technologies.
-</p>
+<h3>💻 Coding</h3>
+<p>Learning programming & AI.</p>
 </div>
-
 </div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<h2 class="section-title">
-Featured Projects
-</h2>
-
-<p class="section-sub">
-Explore my robotics and electronics creations.
-</p>
-
-<div class="projects-grid">
-
-<div class="project-card">
-<h3>🚗 Obstacle Avoiding Car</h3>
-<p>
-Smart robot using ultrasonic sensors and Arduino automation.
-</p>
-<button class="btn btn-primary">View Project</button>
-</div>
-
-<div class="project-card">
-<h3>🌧 Rain Detector</h3>
-<p>
-Automatic rain sensing system for smart home protection.
-</p>
-<button class="btn btn-primary">View Project</button>
-</div>
-
-<div class="project-card">
-<h3>🎯 Buzz Wire Game</h3>
-<p>
-Interactive electronics game with buzzer and LED feedback.
-</p>
-<button class="btn btn-primary">View Project</button>
-</div>
-
-<div class="project-card">
-<h3>🌬 Windmill Generator</h3>
-<p>
-Mini renewable energy project generating electricity from wind.
-</p>
-<button class="btn btn-primary">View Project</button>
-</div>
-
-</div>
-
-</section>
-
-<!-- STATS -->
-
-<section id="stats">
-
-<h2 class="section-title">
-Achievements
-</h2>
-
-<p class="section-sub">
-Growing through innovation and robotics learning.
-</p>
-
-<div class="stats">
-
-<div class="stat-box">
-<h2>10+</h2>
-<p>Projects Built</p>
-</div>
-
-<div class="stat-box">
-<h2>5+</h2>
-<p>Arduino Systems</p>
-</div>
-
-<div class="stat-box">
-<h2>100%</h2>
-<p>Passion For Tech</p>
-</div>
-
-<div class="stat-box">
-<h2>2026</h2>
-<p>Future Innovator</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-
-<section id="contact">
-
-<h2 class="section-title">
-Contact Me
-</h2>
-
-<p class="section-sub">
-Let's build futuristic technology together.
-</p>
-
-<div class="contact-box">
-
-<input type="text" placeholder="Your Name">
-
-<input type="email" placeholder="Your Email">
-
-<textarea placeholder="Your Message"></textarea>
-
-<button class="btn btn-primary" style="margin-top:20px;">
-Send Message
-</button>
-
-</div>
-
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-
 © 2026 Learn Robotics With Aaryan 🚀
-
 </footer>
 
-<!-- TYPING SCRIPT -->
-
+<!-- TYPING -->
 <script>
+const words=["Robotics Developer","Arduino Engineer","Tech Creator","Future Innovator"];
+let i=0,j=0,deleting=false;
 
-const words = [
-"Robotics Developer",
-"Arduino Engineer",
-"Tech Creator",
-"Future Innovator"
-];
+function type(){
+let word=words[i];
 
-let i = 0;
-let j = 0;
-let current = "";
-let deleting = false;
-
-function typeEffect(){
-
-current = words[i];
-
-if(deleting){
-document.getElementById("typing").textContent =
-current.substring(0,j--);
+if(!deleting){
+document.getElementById("typing").textContent=word.substring(0,j++);
 }else{
-document.getElementById("typing").textContent =
-current.substring(0,j++);
+document.getElementById("typing").textContent=word.substring(0,j--);
 }
 
-if(!deleting && j === current.length + 1){
-deleting = true;
-setTimeout(typeEffect,1200);
-return;
+if(j===word.length+1){deleting=true;setTimeout(type,1000);return;}
+if(j===0){deleting=false;i=(i+1)%words.length;}
+
+setTimeout(type,deleting?50:100);
 }
 
-if(deleting && j === 0){
-deleting = false;
-i = (i + 1) % words.length;
-}
-
-setTimeout(typeEffect,deleting ? 50 : 100);
-
-}
-
-typeEffect();
-
+type();
 </script>
 
 </body>
