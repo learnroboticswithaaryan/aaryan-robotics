@@ -129,11 +129,18 @@ border-radius:40px;
 font-size:15px;
 font-weight:600;
 cursor:pointer;
+transition:0.3s;
 }
 
 .btn-primary{
 background:linear-gradient(90deg,#38bdf8,#6366f1);
 color:white;
+box-shadow:0 0 20px rgba(56,189,248,0.5);
+}
+
+.btn-primary:hover{
+transform:scale(1.05);
+box-shadow:0 0 35px rgba(99,102,241,0.7);
 }
 
 /* ===== BANNER ===== */
@@ -182,6 +189,12 @@ gap:30px;
 background:rgba(255,255,255,0.04);
 padding:35px;
 border-radius:24px;
+transition:0.4s;
+}
+
+.about-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(56,189,248,0.25);
 }
 
 /* PROJECTS */
@@ -195,6 +208,12 @@ gap:30px;
 background:rgba(255,255,255,0.04);
 padding:30px;
 border-radius:24px;
+transition:0.4s;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(56,189,248,0.25);
 }
 
 /* STATS */
@@ -209,6 +228,12 @@ background:rgba(255,255,255,0.04);
 padding:40px 20px;
 border-radius:20px;
 text-align:center;
+transition:0.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(56,189,248,0.25);
 }
 
 /* CONTACT */
@@ -231,6 +256,95 @@ border-radius:12px;
 color:white;
 }
 
+/* AI BUTTON */
+.ai-chat-btn{
+position:fixed;
+bottom:25px;
+right:25px;
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+padding:15px 22px;
+border-radius:50px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 0 25px rgba(56,189,248,0.5);
+z-index:999;
+transition:0.3s;
+}
+
+.ai-chat-btn:hover{
+transform:scale(1.05);
+}
+
+/* CHAT BOX */
+.ai-chat-box{
+position:fixed;
+bottom:95px;
+right:25px;
+width:340px;
+background:#0f172a;
+border-radius:22px;
+overflow:hidden;
+display:none;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(56,189,248,0.2);
+z-index:999;
+}
+
+.ai-header{
+background:linear-gradient(90deg,#38bdf8,#6366f1);
+padding:15px;
+display:flex;
+justify-content:space-between;
+font-weight:600;
+}
+
+.ai-messages{
+height:300px;
+overflow-y:auto;
+padding:15px;
+}
+
+.bot-msg,
+.user-msg{
+padding:12px;
+border-radius:14px;
+margin-bottom:10px;
+font-size:14px;
+}
+
+.bot-msg{
+background:#1e293b;
+}
+
+.user-msg{
+background:#2563eb;
+text-align:right;
+}
+
+.ai-input-area{
+display:flex;
+padding:10px;
+gap:10px;
+}
+
+.ai-input-area input{
+flex:1;
+padding:12px;
+border:none;
+border-radius:12px;
+background:#1e293b;
+color:white;
+}
+
+.ai-input-area button{
+padding:12px 16px;
+border:none;
+border-radius:12px;
+background:#38bdf8;
+color:white;
+cursor:pointer;
+}
+
 /* FOOTER */
 footer{
 padding:30px;
@@ -245,8 +359,21 @@ color:#94a3b8;
 
 /* MOBILE */
 @media(max-width:768px){
-.hero h1{font-size:45px;}
-nav ul{gap:15px;}
+
+.hero h1{
+font-size:45px;
+}
+
+nav ul{
+gap:15px;
+font-size:14px;
+}
+
+.ai-chat-box{
+width:90%;
+right:5%;
+}
+
 }
 
 </style>
@@ -256,17 +383,23 @@ nav ul{gap:15px;}
 
 <!-- NAVBAR -->
 <nav>
-<div class="logo">Learn Robotics With Aaryan</div>
+
+<div class="logo">
+Learn Robotics With Aaryan
+</div>
+
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#stats">Stats</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
+
 </nav>
 
 <!-- HERO -->
 <section class="hero">
+
 <div class="hero-content">
 
 <h1>
@@ -278,12 +411,17 @@ Build The Future With <span>Robotics</span><br>
 Welcome to Learn Robotics With Aaryan — Arduino, robotics, automation and future tech learning platform.
 </p>
 
-<button class="btn btn-primary">Explore Projects</button>
+<div class="hero-buttons">
+<button class="btn btn-primary">
+Explore Projects
+</button>
+</div>
 
 </div>
+
 </section>
 
-<!-- BANNER (FIXED) -->
+<!-- BANNER -->
 <section class="banner-section">
 
 <div class="banner-container">
@@ -297,10 +435,15 @@ alt="Learn Robotics With Aaryan Banner">
 
 <!-- ABOUT -->
 <section id="about">
+
 <h2 class="section-title">About Me</h2>
-<p class="section-sub">Young robotics innovator passionate about technology.</p>
+
+<p class="section-sub">
+Young robotics innovator passionate about technology.
+</p>
 
 <div class="about-grid">
+
 <div class="about-card">
 <h3>🤖 Robotics</h3>
 <p>Arduino and automation projects.</p>
@@ -315,7 +458,96 @@ alt="Learn Robotics With Aaryan Banner">
 <h3>💻 Coding</h3>
 <p>Learning programming & AI.</p>
 </div>
+
 </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+
+<h2 class="section-title">Projects</h2>
+
+<p class="section-sub">
+Real robotics and Arduino projects.
+</p>
+
+<div class="projects-grid">
+
+<div class="project-card">
+<h3>🚗 Arduino Robotic Car</h3>
+<p>Obstacle avoiding robotic vehicle using sensors.</p>
+</div>
+
+<div class="project-card">
+<h3>🌧 Rain Detector</h3>
+<p>Automatic clothes protection system using rain sensor.</p>
+</div>
+
+<div class="project-card">
+<h3>⚡ Windmill Generator</h3>
+<p>Small renewable energy generator project.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+<section id="stats">
+
+<h2 class="section-title">My Progress</h2>
+
+<p class="section-sub">
+Learning and building future technology.
+</p>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>15+</h2>
+<p>Projects</p>
+</div>
+
+<div class="stat-box">
+<h2>Arduino</h2>
+<p>Main Platform</p>
+</div>
+
+<div class="stat-box">
+<h2>AI + Robotics</h2>
+<p>Future Goal</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<p class="section-sub">
+Let's build future technology together.
+</p>
+
+<div class="contact-box">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea rows="5" placeholder="Your Message"></textarea>
+
+<br><br>
+
+<button class="btn btn-primary">
+Send Message
+</button>
+
+</div>
+
 </section>
 
 <!-- FOOTER -->
@@ -323,27 +555,139 @@ alt="Learn Robotics With Aaryan Banner">
 © 2026 Learn Robotics With Aaryan 🚀
 </footer>
 
-<!-- TYPING -->
+<!-- AI BUTTON -->
+<div class="ai-chat-btn" onclick="openAIChat()">
+🤖 Ask Aaryan AI
+</div>
+
+<!-- AI CHAT BOX -->
+<div class="ai-chat-box" id="aiBox">
+
+<div class="ai-header">
+Aaryan AI Assistant
+<span style="cursor:pointer;" onclick="closeAIChat()">✖</span>
+</div>
+
+<div class="ai-messages" id="messages">
+
+<div class="bot-msg">
+Hello 👋<br>
+I am Ask Aaryan AI.<br>
+How can I help you in robotics?
+</div>
+
+</div>
+
+<div class="ai-input-area">
+
+<input type="text" id="userInput" placeholder="Ask something...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+<!-- JAVASCRIPT -->
 <script>
-const words=["Robotics Developer","Arduino Engineer","Tech Creator","Future Innovator"];
-let i=0,j=0,deleting=false;
+
+/* TYPING EFFECT */
+
+const words=[
+"Robotics Developer",
+"Arduino Engineer",
+"Tech Creator",
+"Future Innovator"
+];
+
+let i=0;
+let j=0;
+let deleting=false;
 
 function type(){
+
 let word=words[i];
 
 if(!deleting){
-document.getElementById("typing").textContent=word.substring(0,j++);
+document.getElementById("typing").textContent=
+word.substring(0,j++);
 }else{
-document.getElementById("typing").textContent=word.substring(0,j--);
+document.getElementById("typing").textContent=
+word.substring(0,j--);
 }
 
-if(j===word.length+1){deleting=true;setTimeout(type,1000);return;}
-if(j===0){deleting=false;i=(i+1)%words.length;}
+if(j===word.length+1){
+deleting=true;
+setTimeout(type,1000);
+return;
+}
+
+if(j===0){
+deleting=false;
+i=(i+1)%words.length;
+}
 
 setTimeout(type,deleting?50:100);
+
 }
 
 type();
+
+/* AI CHAT */
+
+function openAIChat(){
+document.getElementById("aiBox").style.display="block";
+}
+
+function closeAIChat(){
+document.getElementById("aiBox").style.display="none";
+}
+
+function sendMessage(){
+
+let input=document.getElementById("userInput");
+let messages=document.getElementById("messages");
+
+if(input.value.trim()==="") return;
+
+let userDiv=document.createElement("div");
+
+userDiv.className="user-msg";
+userDiv.innerText=input.value;
+
+messages.appendChild(userDiv);
+
+let botDiv=document.createElement("div");
+botDiv.className="bot-msg";
+
+let text=input.value.toLowerCase();
+
+if(text.includes("robot")){
+botDiv.innerHTML="🤖 Robotics is the future of innovation!";
+}
+
+else if(text.includes("arduino")){
+botDiv.innerHTML="⚡ Arduino is perfect for beginner robotics projects.";
+}
+
+else if(text.includes("ai")){
+botDiv.innerHTML="🧠 AI + Robotics will change the world.";
+}
+
+else{
+botDiv.innerHTML="🚀 Ask Aaryan AI is learning new robotics ideas every day!";
+}
+
+messages.appendChild(botDiv);
+
+messages.scrollTop=messages.scrollHeight;
+
+input.value="";
+
+}
+
 </script>
 
 </body>
