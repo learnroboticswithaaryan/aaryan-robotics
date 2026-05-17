@@ -216,7 +216,7 @@ box-shadow:0 0 35px rgba(56,189,248,0.25);
 text-align:center;
 }
 
-/* ===== CONTACT ===== */
+/* ===== CONTACT FORM ===== */
 
 .contact-box{
 max-width:700px;
@@ -237,6 +237,64 @@ border:none;
 border-radius:12px;
 color:white;
 font-family:'Poppins',sans-serif;
+}
+
+/* ===== BOTTOM CONTACT ===== */
+
+.bottom-contact{
+padding:80px 7%;
+text-align:center;
+}
+
+.bottom-contact h2{
+font-size:40px;
+margin-bottom:30px;
+}
+
+.contact-icons{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.contact-btn{
+display:flex;
+align-items:center;
+gap:12px;
+padding:15px 28px;
+border-radius:18px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+backdrop-filter:blur(15px);
+}
+
+.contact-btn img{
+width:32px;
+height:32px;
+}
+
+.whatsapp{
+background:rgba(37,211,102,0.15);
+border:1px solid rgba(37,211,102,0.4);
+}
+
+.instagram{
+background:rgba(225,48,108,0.15);
+border:1px solid rgba(225,48,108,0.4);
+}
+
+.contact-btn:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 30px rgba(255,255,255,0.15);
+}
+
+.contact-number{
+color:#94a3b8;
+font-size:18px;
 }
 
 /* ===== FOOTER ===== */
@@ -281,7 +339,6 @@ display:none;
 border:1px solid rgba(255,255,255,0.08);
 box-shadow:0 0 40px rgba(56,189,248,0.2);
 z-index:999;
-animation:popup 0.3s ease;
 }
 
 .ai-header{
@@ -352,17 +409,6 @@ border-color:transparent;
 }
 }
 
-@keyframes popup{
-from{
-transform:translateY(20px);
-opacity:0;
-}
-to{
-transform:translateY(0);
-opacity:1;
-}
-}
-
 /* ===== MOBILE ===== */
 
 @media(max-width:768px){
@@ -418,7 +464,7 @@ Build The Future With <span>Robotics</span><br>
 </h1>
 
 <p>
-Welcome to Learn Robotics With Aaryan — futuristic robotics, Arduino, AI and innovation platform built by Aaryan 🚀
+Welcome to Learn Robotics With Aaryan — futuristic robotics, Arduino, AI and innovation platform 🚀
 </p>
 
 <button class="btn btn-primary">
@@ -496,12 +542,12 @@ Real robotics projects by Aaryan.
 
 <div class="project-card">
 <h3>🌧 Rain Detector</h3>
-<p>Automatic rain sensing clothes protection system.</p>
+<p>Automatic rain sensing system.</p>
 </div>
 
 <div class="project-card">
 <h3>⚡ Windmill Generator</h3>
-<p>Renewable electricity generating project.</p>
+<p>Renewable energy generator project.</p>
 </div>
 
 </div>
@@ -571,6 +617,38 @@ Send Message
 
 </section>
 
+<!-- ===== BOTTOM CONTACT ===== -->
+
+<section class="bottom-contact">
+
+<h2>📲 Contact Me</h2>
+
+<div class="contact-icons">
+
+<a href="https://wa.me/9779810487212" target="_blank" class="contact-btn whatsapp">
+
+<img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
+<span>WhatsApp</span>
+
+</a>
+
+<a href="https://instagram.com/" target="_blank" class="contact-btn instagram">
+
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+
+<span>Instagram</span>
+
+</a>
+
+</div>
+
+<p class="contact-number">
+📞 WhatsApp: +977 9810487212
+</p>
+
+</section>
+
 <!-- ===== FOOTER ===== -->
 
 <footer>
@@ -591,8 +669,7 @@ Send Message
 
 <span>🤖 Aaryan AI Assistant</span>
 
-<span style="cursor:pointer;"
-onclick="closeAIChat()">
+<span style="cursor:pointer;" onclick="closeAIChat()">
 ✖
 </span>
 
@@ -601,29 +678,15 @@ onclick="closeAIChat()">
 <div class="ai-messages" id="messages">
 
 <div class="bot-msg">
-
 👋 Hello! I am <b>Aaryan AI</b>.<br><br>
-
-Your futuristic robotics assistant 🤖<br><br>
-
-Ask me about:
-<ul>
-<li>⚡ Arduino</li>
-<li>🤖 Robotics</li>
-<li>💻 Coding</li>
-<li>🧠 AI</li>
-<li>🌐 Websites</li>
-</ul>
-
+Your futuristic robotics assistant 🤖
 </div>
 
 </div>
 
 <div class="ai-input-area">
 
-<input type="text"
-id="userInput"
-placeholder="Ask Aaryan AI...">
+<input type="text" id="userInput" placeholder="Ask Aaryan AI...">
 
 <button onclick="sendMessage()">
 Send
@@ -689,235 +752,91 @@ function closeAIChat(){
 document.getElementById("aiBox").style.display="none";
 }
 
-function sendMessage(){
+async function sendMessage(){
 
 let input=document.getElementById("userInput");
 let messages=document.getElementById("messages");
 
 if(input.value.trim()==="") return;
 
-let userText=input.value.toLowerCase();
-
-/* USER MESSAGE */
+let userText=input.value;
 
 let userDiv=document.createElement("div");
 userDiv.className="user-msg";
-userDiv.innerText=input.value;
+userDiv.innerText=userText;
 
 messages.appendChild(userDiv);
 
-/* BOT MESSAGE */
-
 let botDiv=document.createElement("div");
 botDiv.className="bot-msg";
-
-let reply="";
-
-/* GREETING */
-
-if(
-userText.includes("hello") ||
-userText.includes("hey") ||
-userText.includes("hi")
-){
-
-reply=`
-👋 Hello! I am <b>Aaryan AI</b>.<br><br>
-
-Your futuristic robotics assistant 🤖<br><br>
-
-I can help you with:
-<ul>
-<li>⚡ Arduino Projects</li>
-<li>🤖 Robotics Ideas</li>
-<li>💻 Coding Help</li>
-<li>🧠 AI Technology</li>
-</ul>
-
-What would you like to build today? 🚀
-`;
-
-}
-
-/* TODAY PLAN */
-
-else if(
-userText.includes("plan") ||
-userText.includes("today")
-){
-
-reply=`
-📅 Today's Robotics Mission:
-
-<br><br>
-
-✅ Improve your robotics website<br>
-✅ Learn a new coding concept<br>
-✅ Watch an Arduino tutorial<br>
-✅ Upgrade a robotics project<br>
-✅ Think about futuristic inventions 🚀
-
-<br><br>
-
-Keep building the future, Aaryan 🔥
-`;
-
-}
-
-/* ROBOTICS */
-
-else if(
-userText.includes("robot")
-){
-
-reply=`
-🤖 Robotics is the future of innovation.
-
-<br><br>
-
-Robotics combines:
-<ul>
-<li>⚡ Electronics</li>
-<li>💻 Programming</li>
-<li>🧠 AI Systems</li>
-<li>🔩 Engineering</li>
-</ul>
-
-Future robots will help humans everywhere 🚀
-`;
-
-}
-
-/* ARDUINO */
-
-else if(
-userText.includes("arduino")
-){
-
-reply=`
-⚡ Arduino is one of the best platforms for beginners.
-
-<br><br>
-
-Popular projects:
-<ul>
-<li>🚗 Robot Car</li>
-<li>🌧 Rain Detector</li>
-<li>💡 Smart Lights</li>
-<li>📡 Bluetooth Robot</li>
-</ul>
-
-Keep experimenting and innovating 🚀
-`;
-
-}
-
-/* WEBSITE */
-
-else if(
-userText.includes("website") ||
-userText.includes("web")
-){
-
-reply=`
-🌐 Your robotics website looks futuristic already.
-
-<br><br>
-
-Next upgrades:
-<ul>
-<li>✨ 3D animations</li>
-<li>🤖 Advanced AI assistant</li>
-<li>🎥 Video project gallery</li>
-<li>🌌 Animated background</li>
-<li>📱 Mobile navigation menu</li>
-</ul>
-`;
-
-}
-
-/* AI */
-
-else if(
-userText.includes("ai")
-){
-
-reply=`
-🧠 AI means Artificial Intelligence.
-
-<br><br>
-
-AI can:
-<ul>
-<li>👁 Detect objects</li>
-<li>🎙 Understand voice</li>
-<li>🤖 Control robots</li>
-<li>💬 Chat with humans</li>
-</ul>
-
-AI + Robotics = Future 🚀
-`;
-
-}
-
-/* FUTURE */
-
-else if(
-userText.includes("future")
-){
-
-reply=`
-🚀 Future technologies may include:
-
-<br><br>
-
-🤖 Human-like robots<br>
-🚗 Self-driving cars<br>
-🏠 Smart AI homes<br>
-🛰 Space robotics<br>
-⚡ Advanced renewable energy
-
-<br><br>
-
-The future is being built now 🔥
-`;
-
-}
-
-/* DEFAULT */
-
-else{
-
-reply=`
-🤖 Aaryan AI is thinking...
-
-<br><br>
-
-I am continuously learning robotics, coding and future technologies 🚀
-
-<br><br>
-
-Try asking about:
-<ul>
-<li>⚡ Arduino</li>
-<li>🤖 Robotics</li>
-<li>🧠 AI</li>
-<li>💻 Coding</li>
-<li>🌐 Websites</li>
-</ul>
-`;
-
-}
-
-/* TYPING */
-
-botDiv.innerHTML="⌛ Aaryan AI is typing...";
+botDiv.innerHTML="⌛ Aaryan AI is thinking...";
 
 messages.appendChild(botDiv);
 
 messages.scrollTop=messages.scrollHeight;
 
 input.value="";
+
+let text=userText.toLowerCase();
+
+let reply="";
+
+if(text.includes("hello") || text.includes("hey") || text.includes("hi")){
+
+reply=`
+👋 Hello! I am <b>Aaryan AI</b>.<br><br>
+How can I help you today? 🚀
+`;
+
+}
+
+else if(text.includes("robot")){
+
+reply=`
+🤖 Robotics is transforming the future with automation and AI.
+`;
+
+}
+
+else if(text.includes("arduino")){
+
+reply=`
+⚡ Arduino is perfect for robotics and beginner electronics projects.
+`;
+
+}
+
+else if(text.includes("website")){
+
+reply=`
+🌐 Your robotics website already looks futuristic and premium 🚀
+`;
+
+}
+
+else{
+
+const randomReplies=[
+
+"🤖 Interesting question. I am continuously learning new technologies.",
+
+"🚀 Technology is evolving every day.",
+
+"🧠 AI and robotics can build amazing inventions.",
+
+"⚡ Keep learning and experimenting with futuristic ideas.",
+
+"🌐 Innovation starts with creativity.",
+
+"💻 Coding and robotics together can change the future."
+
+];
+
+reply=randomReplies[
+Math.floor(Math.random()*randomReplies.length)
+];
+
+}
 
 setTimeout(()=>{
 
@@ -929,7 +848,7 @@ messages.scrollTop=messages.scrollHeight;
 
 }
 
-/* ENTER KEY */
+/* ===== ENTER KEY ===== */
 
 document.getElementById("userInput")
 .addEventListener("keypress",function(event){
