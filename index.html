@@ -184,6 +184,50 @@ color:#94a3b8;
 margin-bottom:60px;
 }
 
+/* ===== ROBOTICS INFO ===== */
+
+.robotics-info{
+padding:100px 7%;
+}
+
+.robotics-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:50px;
+}
+
+.robotics-card{
+background:rgba(255,255,255,0.04);
+padding:35px;
+border-radius:24px;
+transition:0.4s;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.robotics-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(56,189,248,0.25);
+}
+
+.robotics-card h3{
+font-size:28px;
+margin-bottom:20px;
+color:#38bdf8;
+}
+
+.robotics-card p{
+color:#cbd5e1;
+line-height:1.8;
+}
+
+.robotics-card ul{
+padding-left:20px;
+line-height:2;
+color:#cbd5e1;
+}
+
 /* ===== CARDS ===== */
 
 .about-grid,
@@ -445,6 +489,7 @@ Learn Robotics With Aaryan
 
 <ul>
 <li><a href="#about">About</a></li>
+<li><a href="#robotics">Robotics</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#stats">Stats</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -483,6 +528,64 @@ Explore Projects
 
 <img src="White and Blue Modern Robot Collaboration LinkedIn Banner.png"
 alt="Learn Robotics With Aaryan Banner">
+
+</div>
+
+</section>
+
+<!-- ===== ROBOTICS INFO ===== -->
+
+<section id="robotics" class="robotics-info">
+
+<h2 class="section-title">
+What is Robotics?
+</h2>
+
+<p class="section-sub">
+Discover the future technology transforming the world 🤖
+</p>
+
+<div class="robotics-grid">
+
+<div class="robotics-card">
+
+<h3>🤖 What is Robotics?</h3>
+
+<p>
+Robotics is a branch of technology that focuses on designing,
+building and programming robots. Robots can perform tasks
+automatically using sensors, coding, electronics and artificial intelligence.
+</p>
+
+</div>
+
+<div class="robotics-card">
+
+<h3>🚀 Why is Robotics Important?</h3>
+
+<p>
+Robotics helps humans complete difficult and dangerous tasks easily.
+It is used in industries, hospitals, agriculture, schools, space research
+and smart automation systems to improve productivity and innovation.
+</p>
+
+</div>
+
+<div class="robotics-card">
+
+<h3>⚡ Advantages of Robotics</h3>
+
+<ul>
+<li>Saves Time and Energy</li>
+<li>High Accuracy and Speed</li>
+<li>Works in Dangerous Areas</li>
+<li>Improves Industrial Production</li>
+<li>Supports AI and Future Technology</li>
+<li>Creates Future Career Opportunities</li>
+<li>Makes Learning Fun and Creative</li>
+</ul>
+
+</div>
 
 </div>
 
@@ -649,217 +752,9 @@ Send Message
 
 </section>
 
-<!-- ===== FOOTER ===== -->
-
 <footer>
 © 2026 Learn Robotics With Aaryan 🚀
 </footer>
-
-<!-- ===== AI BUTTON ===== -->
-
-<div class="ai-chat-btn" onclick="openAIChat()">
-🤖 Ask Aaryan AI
-</div>
-
-<!-- ===== AI CHAT ===== -->
-
-<div class="ai-chat-box" id="aiBox">
-
-<div class="ai-header">
-
-<span>🤖 Aaryan AI Assistant</span>
-
-<span style="cursor:pointer;" onclick="closeAIChat()">
-✖
-</span>
-
-</div>
-
-<div class="ai-messages" id="messages">
-
-<div class="bot-msg">
-👋 Hello! I am <b>Aaryan AI</b>.<br><br>
-Your futuristic robotics assistant 🤖
-</div>
-
-</div>
-
-<div class="ai-input-area">
-
-<input type="text" id="userInput" placeholder="Ask Aaryan AI...">
-
-<button onclick="sendMessage()">
-Send
-</button>
-
-</div>
-
-</div>
-
-<!-- ===== JAVASCRIPT ===== -->
-
-<script>
-
-/* ===== TYPING EFFECT ===== */
-
-const words=[
-"Robotics Developer",
-"Arduino Engineer",
-"AI Innovator",
-"Future Tech Creator"
-];
-
-let i=0;
-let j=0;
-let deleting=false;
-
-function type(){
-
-let word=words[i];
-
-if(!deleting){
-document.getElementById("typing").textContent=
-word.substring(0,j++);
-}else{
-document.getElementById("typing").textContent=
-word.substring(0,j--);
-}
-
-if(j===word.length+1){
-deleting=true;
-setTimeout(type,1000);
-return;
-}
-
-if(j===0){
-deleting=false;
-i=(i+1)%words.length;
-}
-
-setTimeout(type,deleting?50:100);
-
-}
-
-type();
-
-/* ===== AI CHAT ===== */
-
-function openAIChat(){
-document.getElementById("aiBox").style.display="block";
-}
-
-function closeAIChat(){
-document.getElementById("aiBox").style.display="none";
-}
-
-async function sendMessage(){
-
-let input=document.getElementById("userInput");
-let messages=document.getElementById("messages");
-
-if(input.value.trim()==="") return;
-
-let userText=input.value;
-
-let userDiv=document.createElement("div");
-userDiv.className="user-msg";
-userDiv.innerText=userText;
-
-messages.appendChild(userDiv);
-
-let botDiv=document.createElement("div");
-botDiv.className="bot-msg";
-botDiv.innerHTML="⌛ Aaryan AI is thinking...";
-
-messages.appendChild(botDiv);
-
-messages.scrollTop=messages.scrollHeight;
-
-input.value="";
-
-let text=userText.toLowerCase();
-
-let reply="";
-
-if(text.includes("hello") || text.includes("hey") || text.includes("hi")){
-
-reply=`
-👋 Hello! I am <b>Aaryan AI</b>.<br><br>
-How can I help you today? 🚀
-`;
-
-}
-
-else if(text.includes("robot")){
-
-reply=`
-🤖 Robotics is transforming the future with automation and AI.
-`;
-
-}
-
-else if(text.includes("arduino")){
-
-reply=`
-⚡ Arduino is perfect for robotics and beginner electronics projects.
-`;
-
-}
-
-else if(text.includes("website")){
-
-reply=`
-🌐 Your robotics website already looks futuristic and premium 🚀
-`;
-
-}
-
-else{
-
-const randomReplies=[
-
-"🤖 Interesting question. I am continuously learning new technologies.",
-
-"🚀 Technology is evolving every day.",
-
-"🧠 AI and robotics can build amazing inventions.",
-
-"⚡ Keep learning and experimenting with futuristic ideas.",
-
-"🌐 Innovation starts with creativity.",
-
-"💻 Coding and robotics together can change the future."
-
-];
-
-reply=randomReplies[
-Math.floor(Math.random()*randomReplies.length)
-];
-
-}
-
-setTimeout(()=>{
-
-botDiv.innerHTML=reply;
-
-messages.scrollTop=messages.scrollHeight;
-
-},1000);
-
-}
-
-/* ===== ENTER KEY ===== */
-
-document.getElementById("userInput")
-.addEventListener("keypress",function(event){
-
-if(event.key==="Enter"){
-sendMessage();
-}
-
-});
-
-</script>
 
 </body>
 </html>
