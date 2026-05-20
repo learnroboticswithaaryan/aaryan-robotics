@@ -1,18 +1,15 @@
+# Premium Robotics Website Full Code
+
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Learn Robotics With Aaryan</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== RESET ===== */
 
 *{
 margin:0;
@@ -28,8 +25,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* ===== BACKGROUND ===== */
-
 body::before{
 content:'';
 position:fixed;
@@ -40,9 +35,17 @@ radial-gradient(circle at top left,#1e3a8a44,transparent 25%),
 radial-gradient(circle at bottom right,#7c3aed44,transparent 25%),
 linear-gradient(135deg,#020617,#0f172a,#020617);
 z-index:-1;
+animation:bgMove 10s infinite alternate;
 }
 
-/* ===== NAVBAR ===== */
+@keyframes bgMove{
+0%{
+filter:hue-rotate(0deg);
+}
+100%{
+filter:hue-rotate(40deg);
+}
+}
 
 nav{
 position:fixed;
@@ -83,8 +86,6 @@ nav ul li a:hover{
 color:#38bdf8;
 }
 
-/* ===== HERO ===== */
-
 .hero{
 min-height:100vh;
 display:flex;
@@ -124,7 +125,17 @@ margin:auto;
 margin-bottom:30px;
 }
 
-/* ===== BUTTON ===== */
+.floating-robot{
+width:220px;
+margin-top:40px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);} 
+50%{transform:translateY(-20px);} 
+100%{transform:translateY(0px);} 
+}
 
 .btn{
 padding:14px 28px;
@@ -147,8 +158,6 @@ transform:scale(1.05);
 box-shadow:0 0 35px rgba(99,102,241,0.7);
 }
 
-/* ===== BANNER ===== */
-
 .banner-section{
 padding:40px 7% 80px;
 }
@@ -166,16 +175,22 @@ width:100%;
 display:block;
 }
 
-/* ===== SECTION ===== */
-
 section{
 padding:100px 7%;
+opacity:0;
+transform:translateY(60px);
+transition:1s;
 }
 
 .section-title{
 font-size:42px;
 text-align:center;
 margin-bottom:15px;
+color:#fff;
+text-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8,
+0 0 40px #38bdf8;
 }
 
 .section-sub{
@@ -184,52 +199,7 @@ color:#94a3b8;
 margin-bottom:60px;
 }
 
-/* ===== ROBOTICS INFO ===== */
-
-.robotics-info{
-padding:100px 7%;
-}
-
-.robotics-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-margin-top:50px;
-}
-
-.robotics-card{
-background:rgba(255,255,255,0.04);
-padding:35px;
-border-radius:24px;
-transition:0.4s;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.robotics-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 35px rgba(56,189,248,0.25);
-}
-
-.robotics-card h3{
-font-size:28px;
-margin-bottom:20px;
-color:#38bdf8;
-}
-
-.robotics-card p{
-color:#cbd5e1;
-line-height:1.8;
-}
-
-.robotics-card ul{
-padding-left:20px;
-line-height:2;
-color:#cbd5e1;
-}
-
-/* ===== CARDS ===== */
-
+.robotics-grid,
 .about-grid,
 .projects-grid,
 .stats{
@@ -238,37 +208,50 @@ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
+.robotics-card,
 .about-card,
 .project-card,
 .stat-box{
-background:rgba(255,255,255,0.04);
+background:rgba(255,255,255,0.08);
 padding:35px;
 border-radius:24px;
 transition:0.4s;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.1);
+box-shadow:0 8px 32px rgba(0,0,0,0.3);
 }
 
+.robotics-card:hover,
 .about-card:hover,
 .project-card:hover,
 .stat-box:hover{
-transform:translateY(-10px) scale(1.02);
+transform:translateY(-12px) scale(1.03) rotateX(5deg);
 box-shadow:0 0 35px rgba(56,189,248,0.25);
+}
+
+.robotics-card h3,
+.about-card h3,
+.project-card h3{
+margin-bottom:15px;
+color:#38bdf8;
+}
+
+.robotics-card ul{
+padding-left:20px;
+line-height:2;
 }
 
 .stat-box{
 text-align:center;
 }
 
-/* ===== CONTACT FORM ===== */
-
 .contact-box{
 max-width:700px;
 margin:auto;
-background:rgba(255,255,255,0.04);
+background:rgba(255,255,255,0.08);
 padding:40px;
 border-radius:24px;
-backdrop-filter:blur(15px);
+backdrop-filter:blur(20px);
 }
 
 .contact-box input,
@@ -283,16 +266,9 @@ color:white;
 font-family:'Poppins',sans-serif;
 }
 
-/* ===== BOTTOM CONTACT ===== */
-
 .bottom-contact{
 padding:80px 7%;
 text-align:center;
-}
-
-.bottom-contact h2{
-font-size:40px;
-margin-bottom:30px;
 }
 
 .contact-icons{
@@ -336,20 +312,11 @@ transform:translateY(-5px) scale(1.05);
 box-shadow:0 0 30px rgba(255,255,255,0.15);
 }
 
-.contact-number{
-color:#94a3b8;
-font-size:18px;
-}
-
-/* ===== FOOTER ===== */
-
 footer{
 padding:30px;
 text-align:center;
 color:#94a3b8;
 }
-
-/* ===== AI BUTTON ===== */
 
 .ai-chat-btn{
 position:fixed;
@@ -364,12 +331,6 @@ box-shadow:0 0 25px rgba(56,189,248,0.5);
 z-index:999;
 transition:0.3s;
 }
-
-.ai-chat-btn:hover{
-transform:scale(1.05);
-}
-
-/* ===== CHAT BOX ===== */
 
 .ai-chat-box{
 position:fixed;
@@ -445,18 +406,13 @@ font-weight:600;
 cursor:pointer;
 }
 
-/* ===== ANIMATION ===== */
-
 @keyframes blink{
 50%{
 border-color:transparent;
 }
 }
 
-/* ===== MOBILE ===== */
-
 @media(max-width:768px){
-
 .hero h1{
 font-size:45px;
 }
@@ -470,23 +426,15 @@ font-size:13px;
 width:92%;
 right:4%;
 }
-
 }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- ===== NAVBAR ===== -->
-
 <nav>
-
-<div class="logo">
-Learn Robotics With Aaryan
-</div>
-
+<div class="logo">Learn Robotics With Aaryan</div>
 <ul>
 <li><a href="#about">About</a></li>
 <li><a href="#robotics">Robotics</a></li>
@@ -494,15 +442,10 @@ Learn Robotics With Aaryan
 <li><a href="#stats">Stats</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-
 </nav>
 
-<!-- ===== HERO ===== -->
-
-<section class="hero">
-
+<section class="hero reveal">
 <div class="hero-content">
-
 <h1>
 Build The Future With <span>Robotics</span><br>
 <span class="typing" id="typing"></span>
@@ -512,99 +455,58 @@ Build The Future With <span>Robotics</span><br>
 Welcome to Learn Robotics With Aaryan — futuristic robotics, Arduino, AI and innovation platform 🚀
 </p>
 
-<button class="btn btn-primary">
-Explore Projects
-</button>
+<button class="btn btn-primary">Explore Projects</button>
+
+<br>
+
+<img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" class="floating-robot">
 
 </div>
-
 </section>
 
-<!-- ===== BANNER ===== -->
-
-<section class="banner-section">
-
+<section class="banner-section reveal">
 <div class="banner-container">
-
-<img src="White and Blue Modern Robot Collaboration LinkedIn Banner.png"
-alt="Learn Robotics With Aaryan Banner">
-
+<img src="White and Blue Modern Robot Collaboration LinkedIn Banner.png" alt="Banner">
 </div>
-
 </section>
 
-<!-- ===== ROBOTICS INFO ===== -->
-
-<section id="robotics" class="robotics-info">
-
-<h2 class="section-title">
-What is Robotics?
-</h2>
-
-<p class="section-sub">
-Discover the future technology transforming the world 🤖
-</p>
+<section id="robotics" class="reveal">
+<h2 class="section-title">What is Robotics?</h2>
+<p class="section-sub">Future technology changing the world 🤖</p>
 
 <div class="robotics-grid">
-
 <div class="robotics-card">
-
 <h3>🤖 What is Robotics?</h3>
-
 <p>
-Robotics is a branch of technology that focuses on designing,
-building and programming robots. Robots can perform tasks
-automatically using sensors, coding, electronics and artificial intelligence.
+Robotics is a branch of technology that focuses on designing, building and programming robots using AI, coding and electronics.
 </p>
-
 </div>
 
 <div class="robotics-card">
-
 <h3>🚀 Why is Robotics Important?</h3>
-
 <p>
-Robotics helps humans complete difficult and dangerous tasks easily.
-It is used in industries, hospitals, agriculture, schools, space research
-and smart automation systems to improve productivity and innovation.
+Robotics helps humans complete difficult tasks quickly and safely. It is used in industries, hospitals, agriculture and space technology.
 </p>
-
 </div>
 
 <div class="robotics-card">
-
-<h3>⚡ Advantages of Robotics</h3>
-
+<h3>⚡ Advantages</h3>
 <ul>
-<li>Saves Time and Energy</li>
-<li>High Accuracy and Speed</li>
+<li>Saves Time</li>
+<li>High Accuracy</li>
 <li>Works in Dangerous Areas</li>
-<li>Improves Industrial Production</li>
-<li>Supports AI and Future Technology</li>
-<li>Creates Future Career Opportunities</li>
-<li>Makes Learning Fun and Creative</li>
+<li>Improves Technology</li>
+<li>Creates Future Careers</li>
 </ul>
-
 </div>
-
 </div>
-
 </section>
 
-<!-- ===== ABOUT ===== -->
-
-<section id="about">
-
-<h2 class="section-title">
-About Me
-</h2>
-
-<p class="section-sub">
-Young robotics innovator passionate about future technology.
-</p>
+<section id="about" class="reveal">
+<h2 class="section-title">About Me</h2>
+<p class="section-sub">Young robotics innovator passionate about future technology.</p>
 
 <div class="about-grid">
-
 <div class="about-card">
 <h3>🤖 Robotics</h3>
 <p>Building robotics and automation projects.</p>
@@ -619,25 +521,14 @@ Young robotics innovator passionate about future technology.
 <h3>💻 Coding</h3>
 <p>Exploring coding, AI and futuristic systems.</p>
 </div>
-
 </div>
-
 </section>
 
-<!-- ===== PROJECTS ===== -->
-
-<section id="projects">
-
-<h2 class="section-title">
-Projects
-</h2>
-
-<p class="section-sub">
-Real robotics projects by Aaryan.
-</p>
+<section id="projects" class="reveal">
+<h2 class="section-title">Projects</h2>
+<p class="section-sub">Real robotics projects by Aaryan.</p>
 
 <div class="projects-grid">
-
 <div class="project-card">
 <h3>🚗 Arduino Robot Car</h3>
 <p>Obstacle avoiding robotic car using sensors.</p>
@@ -652,25 +543,14 @@ Real robotics projects by Aaryan.
 <h3>⚡ Windmill Generator</h3>
 <p>Renewable energy generator project.</p>
 </div>
-
 </div>
-
 </section>
 
-<!-- ===== STATS ===== -->
-
-<section id="stats">
-
-<h2 class="section-title">
-My Progress
-</h2>
-
-<p class="section-sub">
-Building the future step by step 🚀
-</p>
+<section id="stats" class="reveal">
+<h2 class="section-title">My Progress</h2>
+<p class="section-sub">Building the future step by step 🚀</p>
 
 <div class="stats">
-
 <div class="stat-box">
 <h2>15+</h2>
 <p>Projects</p>
@@ -685,76 +565,180 @@ Building the future step by step 🚀
 <h2>Arduino</h2>
 <p>Main Platform</p>
 </div>
-
 </div>
-
 </section>
 
-<!-- ===== CONTACT ===== -->
-
-<section id="contact">
-
-<h2 class="section-title">
-Contact
-</h2>
-
-<p class="section-sub">
-Let's build futuristic technologies together.
-</p>
+<section id="contact" class="reveal">
+<h2 class="section-title">Contact</h2>
+<p class="section-sub">Let's build futuristic technologies together.</p>
 
 <div class="contact-box">
-
 <input type="text" placeholder="Your Name">
-
 <input type="email" placeholder="Your Email">
-
 <textarea rows="5" placeholder="Your Message"></textarea>
-
 <br><br>
-
-<button class="btn btn-primary">
-Send Message
-</button>
-
+<button class="btn btn-primary">Send Message</button>
 </div>
-
 </section>
 
-<!-- ===== BOTTOM CONTACT ===== -->
-
-<section class="bottom-contact">
-
-<h2>📲 Contact Me</h2>
+<section class="bottom-contact reveal">
+<h2 class="section-title">📲 Contact Me</h2>
 
 <div class="contact-icons">
-
 <a href="https://wa.me/9779810487212" target="_blank" class="contact-btn whatsapp">
-
 <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-
 <span>WhatsApp</span>
-
 </a>
 
-<a href="https://instagram.com/" target="_blank" class="contact-btn instagram">
-
+<a href="https://instagram.com" target="_blank" class="contact-btn instagram">
 <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
-
 <span>Instagram</span>
-
 </a>
-
 </div>
 
-<p class="contact-number">
-📞 WhatsApp: +977 9810487212
-</p>
-
+<p>📞 WhatsApp: +977 9810487212</p>
 </section>
 
 <footer>
 © 2026 Learn Robotics With Aaryan 🚀
 </footer>
 
+<div class="ai-chat-btn" onclick="openAIChat()">
+🤖 Ask Aaryan AI
+</div>
+
+<div class="ai-chat-box" id="aiBox">
+<div class="ai-header">
+<span>🤖 Aaryan AI Assistant</span>
+<span style="cursor:pointer;" onclick="closeAIChat()">✖</span>
+</div>
+
+<div class="ai-messages" id="messages">
+<div class="bot-msg">
+👋 Hello! I am <b>Aaryan AI</b>.<br><br>
+Your futuristic robotics assistant 🤖
+</div>
+</div>
+
+<div class="ai-input-area">
+<input type="text" id="userInput" placeholder="Ask Aaryan AI...">
+<button onclick="sendMessage()">Send</button>
+</div>
+</div>
+
+<script>
+
+const words=[
+"Robotics Developer",
+"Arduino Engineer",
+"AI Innovator",
+"Future Tech Creator"
+];
+
+let i=0;
+let j=0;
+let deleting=false;
+
+function type(){
+let word=words[i];
+
+if(!deleting){
+document.getElementById("typing").textContent=
+word.substring(0,j++);
+}else{
+document.getElementById("typing").textContent=
+word.substring(0,j--);
+}
+
+if(j===word.length+1){
+deleting=true;
+setTimeout(type,1000);
+return;
+}
+
+if(j===0){
+deleting=false;
+i=(i+1)%words.length;
+}
+
+setTimeout(type,deleting?50:100);
+}
+
+type();
+
+function openAIChat(){
+document.getElementById("aiBox").style.display="block";
+}
+
+function closeAIChat(){
+document.getElementById("aiBox").style.display="none";
+}
+
+function sendMessage(){
+let input=document.getElementById("userInput");
+let messages=document.getElementById("messages");
+
+if(input.value.trim()==="") return;
+
+let userText=input.value;
+
+let userDiv=document.createElement("div");
+userDiv.className="user-msg";
+userDiv.innerText=userText;
+messages.appendChild(userDiv);
+
+let botDiv=document.createElement("div");
+botDiv.className="bot-msg";
+
+let reply="🚀 Keep learning robotics and AI.";
+
+if(userText.toLowerCase().includes("robot")){
+reply="🤖 Robotics combines coding, electronics and AI.";
+}
+
+else if(userText.toLowerCase().includes("arduino")){
+reply="⚡ Arduino is great for beginner robotics projects.";
+}
+
+else if(userText.toLowerCase().includes("ai")){
+reply="🧠 AI is the future of smart automation systems.";
+}
+
+setTimeout(()=>{
+botDiv.innerHTML=reply;
+messages.appendChild(botDiv);
+messages.scrollTop=messages.scrollHeight;
+},600);
+
+input.value="";
+}
+
+const reveals=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+reveals.forEach(sec=>{
+let top=sec.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+sec.style.opacity="1";
+sec.style.transform="translateY(0px)";
+}
+});
+});
+
+window.dispatchEvent(new Event('scroll'));
+
+</script>
+
 </body>
 </html>
+```
+
+Save this file as `index.html` and open it in your browser.
+
+For best result:
+
+* Put your banner image in the same folder
+* Keep image name exactly:
+  `White and Blue Modern Robot Collaboration LinkedIn Banner.png`
+* Upl
